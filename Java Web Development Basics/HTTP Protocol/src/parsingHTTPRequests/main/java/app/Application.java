@@ -1,4 +1,4 @@
-package main.java.app;
+package parsingHTTPRequests.main.java.app;
 
 import java.io.BufferedReader;
 import java.io.IOException;
