@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Java EE Introduction:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Java_EE_Introduction_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Java EE Introduction" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.0" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Java EE Introduction/web/Web" />
+    </root>
+  </artifact>
+</component>
