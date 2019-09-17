@@ -16,6 +16,6 @@ public class UserLogoutBean {
 
         session.invalidate();
 
-        FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/view/index.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/");
     }
 }

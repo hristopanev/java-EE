@@ -55,6 +55,6 @@ public class UserLoginBean {
         session.setAttribute("username", userServiceModel.getUsername());
         session.setAttribute("role", userServiceModel.getRole());
 
-        FacesContext.getCurrentInstance().getExternalContext().redirect("home.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/view/home.xhtml");
     }
 }

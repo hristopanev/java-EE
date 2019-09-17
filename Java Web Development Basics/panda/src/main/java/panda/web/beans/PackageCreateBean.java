@@ -2,6 +2,7 @@ package panda.web.beans;
 
 import org.modelmapper.ModelMapper;
 import panda.domain.models.binding.PackageCreateBindingModel;
+import panda.domain.models.service.PackageServiceModel;
 import panda.service.PackageService;
 import panda.service.UserService;
 
@@ -24,6 +25,9 @@ public class PackageCreateBean {
     private UserService userService;
     private ModelMapper modelMapper;
 
+    public PackageCreateBean() {
+    }
+
     @Inject
     public PackageCreateBean(PackageService packageService, UserService userService, ModelMapper modelMapper) {
         this.packageService = packageService;
@@ -33,16 +37,19 @@ public class PackageCreateBean {
         this.initModel();
     }
 
+    private void initUsers() {
+        this.users = this.userService.findAllUsers()
+                .stream()
+                .map(u -> u.getUsername())
+                .collect(Collectors.toList());
+    }
+
     private void initModel() {
         this.model = new PackageCreateBindingModel();
     }
 
-    private void initUsers() {
-        this.users = this.userService.findAllUsers().stream().map(u -> u.getUsername()).collect(Collectors.toList());
-    }
-
     public List<String> getUsers() {
-        return this.users;
+        return users;
     }
 
     public void setUsers(List<String> users) {
@@ -50,7 +57,7 @@ public class PackageCreateBean {
     }
 
     public PackageCreateBindingModel getModel() {
-        return this.model;
+        return model;
     }
 
     public void setModel(PackageCreateBindingModel model) {
@@ -58,6 +65,17 @@ public class PackageCreateBean {
     }
 
     public void create() throws IOException {
-        FacesContext.getCurrentInstance().getExternalContext().redirect("home.xhtml");
+        PackageServiceModel packageServiceModel = this.modelMapper
+                .map(this.model, PackageServiceModel.class);
+
+        packageServiceModel
+                .setRecipient(this.userService.findUserByUsername(this.model.getRecipient()));
+
+        this.packageService
+                .packageCreate(packageServiceModel);
+
+        FacesContext.getCurrentInstance()
+                .getExternalContext()
+                .redirect("/faces/view/home.xhtml");
     }
 }
