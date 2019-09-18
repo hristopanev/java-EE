@@ -16,7 +16,7 @@ public class JobApplicationRepositoryImpl extends BaseRepository implements JobA
     @Override
     public void delete(String id) {
         this.executeTransaction((em) -> {
-           em.createNativeQuery("DELETE  FROM users WHERE id = '"+ id +"'");
+           em.createNativeQuery("DELETE  FROM job_applications WHERE id = '"+ id +"'").executeUpdate();
            return null;
         });
     }

@@ -16,6 +16,7 @@ import java.util.List;
 public class JobApplicationListBean extends BaseBean {
 
     private JobApplicationService jobApplicationService;
+    private List<JobApplicationServiceModel> jobApplications;
 
     public JobApplicationListBean() {
     }
@@ -25,9 +26,17 @@ public class JobApplicationListBean extends BaseBean {
         this.jobApplicationService = jobApplicationService;
     }
 
+    @PostConstruct
+    public void init() {
+        this.setJobApplications(this.jobApplicationService.getAllJobApplication());
+        this.getJobApplications().forEach(x -> x.setSector(x.getSector().toLowerCase()));
+    }
 
+    public List<JobApplicationServiceModel> getJobApplications() {
+        return this.jobApplications;
+    }
 
-    public List<JobApplicationServiceModel> extractAllJobApplications() {
-        return this.jobApplicationService.getAllJobApplication();
+    public void setJobApplications(List<JobApplicationServiceModel> jobApplications) {
+        this.jobApplications = jobApplications;
     }
 }
