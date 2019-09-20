@@ -44,7 +44,8 @@ public class UserRegisterBean {
             throw new IllegalArgumentException("Password does not match");
         }
 
-        this.userService.userRegister(this.modelMapper.map(this.userRegisterBindingModel, UserServiceModel.class));
+        this.userService.userRegister(
+                this.modelMapper.map(this.userRegisterBindingModel, UserServiceModel.class));
         FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/view/login.xhtml");
     }
 }
