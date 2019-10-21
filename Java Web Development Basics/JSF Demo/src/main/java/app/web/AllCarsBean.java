@@ -14,7 +14,7 @@ import java.util.List;
 @RequestScoped
 public class AllCarsBean {
 
-//    private List<CarServiceModel> cars;
+    private List<CarServiceModel> cars;
     private CarService carService;
 
     public AllCarsBean() {
@@ -25,20 +25,17 @@ public class AllCarsBean {
         this.carService = carService;
     }
 
-//    @PostConstruct
-//    private void init() {
-//        this.cars = new ArrayList<>();
-//    }
-
-    public List<CarServiceModel> allCars() {
-        return this.carService.allCars();
+    @PostConstruct
+    private void init() {
+        this.setCars(this.carService.allCars());
     }
 
-//    public List<CarServiceModel> getCars() {
-//        return this.cars;
-//    }
-//
-//    public void setCars(List<CarServiceModel> cars) {
-//        this.cars = cars;
-//    }
+
+    public List<CarServiceModel> getCars() {
+        return this.cars;
+    }
+
+    public void setCars(List<CarServiceModel> cars) {
+        this.cars = cars;
+    }
 }
