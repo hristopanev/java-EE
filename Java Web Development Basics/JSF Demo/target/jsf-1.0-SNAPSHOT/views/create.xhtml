@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>West Compass</title>
+    <h:outputStylesheet library="css" name="style.css" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+</h:head>
+<h:body>
+    <main>
+        <nav class="navbar navbar-expand-lg navbar-background">
+            <h:link styleClass="nav-link text-white active h5" value="Home" outcome="index"/>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <ul class="navbar-nav row">
+                    <li class="nav-item col-md-4">
+                        <h:link class="nav-link text-white active font-weight-bold"
+                                value="Upload Car" outcome="create"/>
+                    </li>
+                    <li class="nav-item col-md-4">
+                        <h:link class="nav-link text-white active font-weight-bold"
+                                value="All Car" outcome="all"/>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <h2 class="text-center text-white">Upload Car</h2>
+            <h:form class="mx-auto w-15" method="post">
+                <div class="row">
+                    <div class="col col-md-3"></div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <h:outputLabel class="text-center text-white font-weight-bold" value="Brand">
+                                    <h:inputText class="form-control" placehodler="Brand" value="#{createBean.carServiceModel.brand}" />
+                                </h:outputLabel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <h:outputLabel class="text-center text-white font-weight-bold" value="Model">
+                                    <h:inputText class="form-control" placehodler="Model" value="#{createBean.carServiceModel.model}" />
+                                </h:outputLabel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-3"></div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <h:outputLabel class="text-center text-white font-weight-bold" value="Year">
+                                    <h:inputText type="number" class="form-control" placehodler="Year" value="#{createBean.carServiceModel.year}" />
+                                </h:outputLabel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group ">
+                            <div class="label-holder d-flex justify-content-center">
+                                <h:outputLabel class="text-center text-white font-weight-bold" value="Engine">
+                                    <h:selectOneMenu id="engine" name="engine" class="form-control" value="#{createBean.carServiceModel.engine}">
+                                        <f:selectItem itemValue="diesel" itemLabel="Diesel" />
+                                        <f:selectItem itemValue="gasoline" itemLabel="Gasoline" />
+                                    </h:selectOneMenu>
+                                </h:outputLabel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-4"></div>
+                    <div class="col col-md-4">
+                        <div class="button-holder d-flex justify-content-center">
+                            <h:commandButton type="submit" value="Upload Car" action="#{createBean.createCar}" />
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </main>
+</h:body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>West Compass</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+</h:head>
+<h:body>
+    <main>
+        <nav class="navbar navbar-expand-lg navbar-background">
+            <h:link styleClass="nav-link text-white active h5" value="Home" outcome="index"/>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <ul class="navbar-nav row">
+                    <li class="nav-item col-md-4">
+                        <h:link class="nav-link text-white active font-weight-bold"
+                                value="Upload Car" outcome="create"/>
+                    </li>
+                    <li class="nav-item col-md-4">
+                        <h:link class="nav-link text-white active font-weight-bold"
+                                value="All Car" outcome="all"/>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <h2 class="text-center text-white mt-5">West Compass Offers</h2>
+        <hr style="width: 50%"/>
+
+        <ui:repeat value="#{allCarsBean.allCars}" var="car">
+            <div class='row mb-4 d-flex justify-content-around'>
+                <div class="col-md-4 d-flex flex-column bg-text mb-3">
+                    <h2>Brand: #{car.brand}</h2>
+                    <h4>Model: #{car.model}</h4>
+                    <h4>Year: #{car.year}</h4>
+                    <h4>Engine: #{car.engine}</h4>
+                </div>
+            </div>
+        </ui:repeat>
+    </main>
+</h:body>
+</html>
