@@ -1,6 +1,7 @@
 package repository;
 
 import domain.entites.Package;
+import domain.entites.Status;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -62,5 +63,13 @@ public class PackageRepositoryImpl extends BaseRepository implements PackageRepo
 
             return null;
         }
+    }
+
+    @Override
+    public List<Package> findPackageByStatus(Status status) {
+        return this.executeTransaction((em) -> {
+            return em.createNativeQuery("SELECT * FROM packages WHERE status = '"+ status +"'")
+                    .getResultList();
+        });
     }
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="templates/head.xhtml"/>
+<h:body>
+    <ui:include src="templates/user-navbar.xhtml"/>
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="form-holder text-center">
+                    <h:form class="form-inline" >
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label h3 mb-2" for="title">Title</label>
+                                <div class="controls">
+                                    <h:inputText type="text" id="title" name="title" placeholder="Title"
+                                                 class="input-xlarge"
+                                                 value="#{tubeUploadBean.tubeUploadBindingModel.title}"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="control-group">
+                                <label class="control-label h3 mb-2" for="author">Author</label>
+                                <div class="controls">
+                                    <h:inputText type="text" id="author" name="author" placeholder="Author"
+                                                 class="input-xlarge"
+                                                 value="#{tubeUploadBean.tubeUploadBindingModel.author}"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="control-group">
+                                <label class="control-label h3 mb-2" for="description">Description</label>
+                                <div class="controls">
+                                    <h:inputTextarea id="description" name="description" placeholder="Description"
+                                                     class="input-xlarge" style="resize: none;" cols="75" rows="4"
+                                                     value="#{tubeUploadBean.tubeUploadBindingModel.description}"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="control-group">
+                                <label class="control-label h3 mb-2" for="youtube-link">Youtube Link</label>
+                                <div class="controls">
+                                    <h:inputText type="text" id="youtube-link" name="youtube-link"
+                                                 placeholder="Youtube Link"
+                                                 class="input-xlarge"
+                                                 value="#{tubeUploadBean.tubeUploadBindingModel.youTuBeLink}"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <h:commandButton class="btn btn-info" action="#{tubeUploadBean.upload}"/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <hr class="my-2"/>
+    <ui:include src="templates/footer.xhtml"/>
+</h:body>
+</html>
