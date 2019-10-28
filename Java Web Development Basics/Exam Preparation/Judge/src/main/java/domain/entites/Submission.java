@@ -19,7 +19,7 @@ public class Submission extends BaseEntity {
 
     @ElementCollection
     @CollectionTable(name="codes", joinColumns=@JoinColumn(name="submissions_id"))
-    @Column(name = "code")
+    @Column(name = "code", columnDefinition = "TEXT")
     public List<String> getCode() {
         return this.code;
     }

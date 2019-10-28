@@ -21,7 +21,7 @@
                         <h:link value="Details" outcome="details-problem?id=#{problem.id}" class="text-white"/>
                     </div>
                 </div>
-                <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 3 == 2}"/>
+                <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 4 == 0}"/>
             </ui:repeat>
         </main>
     </div>

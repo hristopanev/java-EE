@@ -1,51 +1,52 @@
 package repository;
 
 import domain.entites.Problem;
+import domain.models.service.ProblemServiceModel;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class ProblemRepositoryImpl extends BaseRepository implements ProblemRepository  {
+public class ProblemRepositoryImpl implements ProblemRepository {
 
+    private final EntityManager entityManager;
 
     @Inject
-    protected ProblemRepositoryImpl(EntityManager entityManager) {
-        super(entityManager);
+    public ProblemRepositoryImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @Override
     public Problem save(Problem problem) {
-        return this.executeTransaction((em) -> {
-            em.persist(problem);
 
-            return problem;
-        });
-    }
+        this.entityManager.getTransaction().begin();
+        this.entityManager.persist(problem);
+        this.entityManager.getTransaction().commit();
 
-    @Override
-    public List<Problem> findAll() {
-        return this.executeTransaction((em) -> {
-            return em.createNativeQuery("SELECT * FROM problems", Problem.class)
-                    .getResultList();
-        });
+        return problem;
     }
 
     @Override
     public Problem findById(String id) {
-        return this.executeTransaction((em) -> {
-            return (Problem) em.createNativeQuery("SELECT * FROM problems WHERE id = '"+ id +"' ")
-                    .getSingleResult();
-        });
+        this.entityManager.getTransaction().begin();
+
+        Problem problem = this.entityManager.createQuery("SELECT p FROM Problem p WHERE p.id = :id", Problem.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        this.entityManager.getTransaction().commit();
+
+
+        return problem;
     }
 
     @Override
-    public void delete(String id) {
+    public List<Problem> findAll() {
+        this.entityManager.getTransaction().begin();
+        List<Problem> problems = this.entityManager
+                .createQuery("SELECT p FROM Problem  p", Problem.class)
+                .getResultList();
+        this.entityManager.getTransaction().commit();
 
-    }
-
-    @Override
-    public Problem update(Problem problem) {
-        return null;
+        return problems;
     }
 }

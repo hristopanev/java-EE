@@ -1,6 +1,15 @@
 package repository;
 
 import domain.entites.Problem;
+import domain.models.service.ProblemServiceModel;
 
-public interface ProblemRepository extends GenericRepository<Problem, String > {
+import java.util.List;
+
+public interface ProblemRepository {
+
+    Problem save(Problem problem);
+
+    Problem findById(String id);
+
+    List<Problem> findAll();
 }
