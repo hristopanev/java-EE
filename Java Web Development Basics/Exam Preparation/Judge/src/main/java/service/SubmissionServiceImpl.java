@@ -39,4 +39,12 @@ public class SubmissionServiceImpl implements SubmissionService {
                 .map(s -> this.modelMapper.map(s, SubmissionServiceModel.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<SubmissionServiceModel> getAllProblemSubmissions(String id) {
+        return this.submissionRepository.findAllProblemSubmissions(id)
+                .stream()
+                .map(s -> this.modelMapper.map(s, SubmissionServiceModel.class))
+                .collect(Collectors.toList());
+    }
 }

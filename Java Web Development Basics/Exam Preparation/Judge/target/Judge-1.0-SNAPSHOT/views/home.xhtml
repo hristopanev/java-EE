@@ -20,9 +20,10 @@
                         <h:link value="Submit" outcome="create-submission?id=#{problem.id}" class="text-white"/>
                         <h:link value="Details" outcome="details-problem?id=#{problem.id}" class="text-white"/>
                     </div>
+                    <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 3 == 2}" />
                 </div>
-                <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 4 == 0}"/>
             </ui:repeat>
+            <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{problemListBean.problemServiceModel.size() % 3 != 0}" />
         </main>
     </div>
     <ui:include src="templates/footer.xhtml"/>

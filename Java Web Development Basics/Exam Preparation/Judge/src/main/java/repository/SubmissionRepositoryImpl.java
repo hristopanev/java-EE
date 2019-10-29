@@ -50,4 +50,16 @@ public class SubmissionRepositoryImpl implements SubmissionRepository {
 
         return submissions;
     }
+
+    @Override
+    public List<Submission> findAllProblemSubmissions(String id) {
+        this.entityManager.getTransaction().begin();
+            List<Submission> submissions = this.entityManager
+                    .createQuery("SELECT s FROM Submission s WHERE s.problem.id = :id", Submission.class)
+                    .setParameter("id", id)
+                    .getResultList();
+        this.entityManager.getTransaction().commit();
+
+        return submissions;
+    }
 }

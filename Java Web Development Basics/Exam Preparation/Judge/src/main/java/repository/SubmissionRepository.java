@@ -12,4 +12,6 @@ public interface SubmissionRepository{
     Submission findById(String id);
 
     List<Submission> findAll();
+
+    List<Submission> findAllProblemSubmissions(String ProblemId);
 }
