@@ -10,13 +10,13 @@
     <ui:include src="templates/user-navbar.xhtml"/>
 
     <main>
-        <ui:repeat value="#{channelListBean}" var="channel" varStatus="status">
+        <ui:repeat value="#{channelListBean.channelServiceModels}" var="channel" varStatus="status">
             <div class="problem bg-mishmash text-white rounded p-3 col-md-2">
                 <h5 class="text-center font-weight-bold">#{channel.name}</h5>
                 <hr class="hr-2 bg-white"/>
                 <h5 class="text-center mt-3">#{channel.description}</h5>
                 <hr class="hr-2 bg-white"/>
-                <h5 class="text-center mt-3">#{channel.followers}</h5>
+                <h5 class="text-center mt-3">#{channel.followers.size}</h5>
                 <hr class="hr-2 bg-white"/>
                 <div class="d-flex justify-content-between">
                     <h:link outcome="/problems/submit/62e53d86-b36f-4fbe-9226-a33384cbd7a3"

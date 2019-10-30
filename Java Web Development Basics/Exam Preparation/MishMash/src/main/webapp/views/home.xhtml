@@ -10,7 +10,7 @@
     <ui:include src="templates/user-navbar.xhtml"/>
 
     <main>
-        <ui:repeat value="#{channelListBean}" var="channel" varStatus="status">
+        <ui:repeat value="#{channelListBean.channelServiceModels}" var="channel" varStatus="status">
             <div class="problem bg-mishmash text-white rounded p-3 col-md-2">
                 <h5 class="text-center font-weight-bold">#{channel.name}</h5>
                 <hr class="hr-2 bg-white"/>

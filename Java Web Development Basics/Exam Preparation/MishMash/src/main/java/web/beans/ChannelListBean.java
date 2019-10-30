@@ -5,6 +5,7 @@ import service.ChannelService;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class ChannelListBean {
     public ChannelListBean() {
     }
 
+    @Inject
     public ChannelListBean(ChannelService channelService) {
         this.channelService = channelService;
     }

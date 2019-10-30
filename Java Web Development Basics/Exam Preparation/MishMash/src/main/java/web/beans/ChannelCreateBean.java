@@ -49,7 +49,6 @@ public class ChannelCreateBean extends BaseBean {
                 this.modelMapper.map(this.channelCreateBindingModel, ChannelServiceModel.class);
 
         channelServiceModel.setTags(Collections.singletonList(channelCreateBindingModel.getTags()));
-
         this.channelService.creteChannel(channelServiceModel);
 
         this.redirect("/home");
