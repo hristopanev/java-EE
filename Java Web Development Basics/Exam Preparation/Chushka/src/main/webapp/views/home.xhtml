@@ -23,17 +23,24 @@
         </div>
         <hr class="hr-2 bg-dark"/>
         <div class="container-fluid product-holder">
-            <div class="row d-flex justify-content-around">
+            <ui:repeat value="#{productListBean.productServiceModels}" var="product" varStatus="status">
+                <h:outputText value="&lt;div class=&quot;row d-flex justify-content-around&quot;&gt;"
+                              escape="false" rendered="#{status.index % 5 == 0}"/>
                 <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Chushkopek</h5>
+                    <h5 class="text-center mt-3">#{product.name}</h5>
                     <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for peking chushkas.
-                    </p>
+                    <p class="text-white text-center">#{product.description}</p>
                     <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$500</h6>
+                    <h:form class="text-center">
+                        <h:link outcome="product-details?id=#{product.id}" class="text-center text-white mb-3"
+                                value="$#{product.price}"/>
+                    </h:form>
+                    <br/>
                 </div>
-            </div>
+                <br/>
+                <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 5 == 4}"/>
+                <br/>
+            </ui:repeat>
         </div>
     </main>
 

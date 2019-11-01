@@ -4,20 +4,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <ui:include src="templates/head.xhtml"/>
 <h:body>
     <ui:include src="templates/user-navbar.xhtml"/>
     <main>
         <div class="container-fluid text-center">
             <h2>Greetings, ${session.getAttribute('username')}!</h2>
-            <h4>Feel free to view and order any of our products.</h4>
+
+            <c:choose>
+                <c:when test="#{session.getAttribute('role') == 'Admin'}">
+                    <h4>Enjoy your work today!</h4>
+                </c:when>
+                <c:otherwise>
+                    <h4>Feel free to view and order any of our products.</h4>
+                </c:otherwise>
+            </c:choose>
         </div>
         <hr class="hr-2 bg-dark"/>
         <div class="container-fluid product-holder">
-            Products...
-            Products...
-            Products...
+            <ui:repeat value="#{productListBean.productServiceModels}" var="product" varStatus="status">
+                <h:outputText value="&lt;div class=&quot;row d-flex justify-content-around&quot;&gt;"
+                              escape="false" rendered="#{status.index % 5 == 0}"/>
+                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
+                    <h5 class="text-center mt-3">#{product.name}</h5>
+                    <hr class="hr-1 bg-white"/>
+                    <p class="text-white text-center">#{product.description}</p>
+                    <hr class="hr-1 bg-white"/>
+                    <h:form class="text-center">
+                        <h:link outcome="product-details?id=#{product.id}" class="text-center text-white mb-3"
+                                value="$#{product.price}"/>
+                    </h:form>
+                    <br/>
+                </div>
+                <br/>
+                <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 5 == 4}"/>
+                <br/>
+            </ui:repeat>
         </div>
     </main>
 

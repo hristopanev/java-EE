@@ -1,15 +1,22 @@
 package repository;
 
 import domain.entites.User;
-import domain.models.service.UserServiceModel;
 
-public interface UserRepository extends GenericRepository<User, String> {
+import java.util.List;
+
+public interface UserRepository {
+
+    User save(User entity);
+
+    List<User> findAll();
+
+    User findById(String  id);
 
     Long size();
 
     User findByUsername(String username);
 
-    void deleteFollowChanel(String channel_id, String friend_id);
+    void delete(String id);
 
-    boolean addChannelFollow(UserServiceModel userServiceModel);
+    User update(User entity);
 }

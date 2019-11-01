@@ -1,62 +1,69 @@
 package repository;
 
 import domain.entites.User;
-import domain.models.service.UserServiceModel;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class UserRepositoryImpl extends BaseRepository implements UserRepository {
+public class UserRepositoryImpl implements UserRepository {
 
     private final EntityManager entityManager;
 
     @Inject
-    protected UserRepositoryImpl(EntityManager entityManager, EntityManager entityManager1) {
-        super(entityManager);
-        this.entityManager = entityManager1;
+    public UserRepositoryImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
+
 
     @Override
     public User findByUsername(String username) {
-        return this.executeTransaction((em) -> {
-            return (User) em.createNativeQuery("SELECT * FROM users WHERE  username = '" + username + "'", User.class)
-                    .getSingleResult();
-        });
+        this.entityManager.getTransaction().begin();
+        User user = this.entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
+                .setParameter("username", username)
+                .getSingleResult();
+        this.entityManager.getTransaction().commit();
+
+        return user;
     }
 
     @Override
     public User save(User user) {
-        return this.executeTransaction((em) -> {
-            em.persist(user);
-            return user;
-        });
+        this.entityManager.getTransaction().begin();
+        this.entityManager.persist(user);
+        this.entityManager.getTransaction().commit();
+
+        return user;
     }
 
     @Override
     public List<User> findAll() {
-        return this.executeTransaction((em) -> {
-            return em.createNativeQuery("SELECT * FROM users", User.class)
-                    .getResultList();
-        });
+        this.entityManager.getTransaction().begin();
+        List<User> users = this.entityManager.createQuery("SELECT u FROM User u", User.class)
+                .getResultList();
+        this.entityManager.getTransaction().commit();
+
+        return users;
     }
 
     @Override
     public User findById(String id) {
-        return this.executeTransaction((em) -> {
-            return (User) em.createNativeQuery("SELECT * FROM users WHERE id = '" + id + "'", User.class)
-                    .getSingleResult();
-        });
+        this.entityManager.getTransaction().begin();
+        User user = this.entityManager.createQuery("SELECT u FROM User u WHERE u.id =:id", User.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        this.entityManager.getTransaction().commit();
+
+        return user;
     }
 
 
     @Override
     public void delete(String id) {
-        this.executeTransaction((em) -> {
-            em.createNativeQuery("DELETE FROM users u WHERE u.id = '" + id + "'", User.class)
-                    .executeUpdate();
-            return null;
-        });
+        this.entityManager.getTransaction().begin();
+        this.entityManager.createQuery("DELETE FROM  User u WHERE u.id=:id", User.class)
+                .executeUpdate();
+        this.entityManager.getTransaction().commit();
     }
 
     @Override
@@ -84,26 +91,5 @@ public class UserRepositoryImpl extends BaseRepository implements UserRepository
         this.entityManager.getTransaction().commit();
 
         return size;
-    }
-
-    @Override
-    public void deleteFollowChanel( String user_id, String channel_id) {
-
-        this.executeTransaction((em) -> {
-            em.createNativeQuery("DELETE  FROM `mish_mash_db`.`users_channels` WHERE user_id = '" + user_id + "' AND friend_id = '" + channel_id + "'")
-                    .executeUpdate();
-            return null;
-        });
-
-        this.executeTransaction((em) -> {
-            em.createNativeQuery("DELETE  FROM `mish_mash_db`.`channels_users` WHERE user_id = '" + channel_id + "' AND friend_id = '" + user_id + "'")
-                    .executeUpdate();
-            return null;
-        });
-    }
-
-    @Override
-    public boolean addChannelFollow(UserServiceModel userServiceModel) {
-        return false;
     }
 }

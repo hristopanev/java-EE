@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:include src="templates/head.xhtml"/>
+<h:body>
+    <ui:include src="templates/user-navbar.xhtml"/>
+    <main>
+        <h1 class="text-center">Create Product</h1>
+        <hr class="hr-2 bg-dark"/>
+        <h:form class="mx-auto half-width">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <h:inputText type="text" class="form-control" id="name" placeholder="Name..." name="name"
+                             value="#{productCreateBean.productCreateBindingModel.name}"/>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <h:inputText type="number" class="form-control" id="price" placeholder="Price..." name="price"
+                             value="#{productCreateBean.productCreateBindingModel.price}"/>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <h:inputTextarea class="form-control" id="description" rows="4" placeholder="Description..."
+                                 name="description"
+                                 value="#{productCreateBean.productCreateBindingModel.description}"/>
+            </div>
+            <h4 class="text-center">Product Type</h4>
+            <hr class="hr-2 bg-dark half-width mt-4"/>
+            <div class="product-type-holder mt-4 d-flex justify-content-around">
+
+                <h:form>
+                    <div class="product-type-holder mt-4 d-flex justify-content-around">
+                        <div class="form-check form-check-inline">
+                            <h:selectOneRadio value="#{productCreateBean.productCreateBindingModel.type}">
+                                <f:selectItem itemValue="FOOD" itemLabel="Food" />
+                                <f:selectItem itemValue="DOMESTIC" itemLabel="Domestic" />
+                                <f:selectItem itemValue="HEALTH" itemLabel="Health" />
+                                <f:selectItem itemValue="COSMETIC" itemLabel="Cosmetic" />
+                                <f:selectItem itemValue="OTHER" itemLabel="Other" />
+                            </h:selectOneRadio>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
+                            <label class="form-check-label" for="inlineRadio1">Food</label>
+                        </div>
+
+                    </div>
+                    <hr class="hr-2 bg-dark half-width mt-4"/>
+                    <div class="button-holder mt-2 d-flex justify-content-center">
+                        <h:commandButton type="submit" class="btn chushka-bg-color" value="Create"
+                                         action="#{productCreateBean.createProduct}"/>
+                    </div>
+                </h:form>
+            </div>
+        </h:form>
+    </main>
+
+    <ui:include src="templates/footer.xhtml"/>
+</h:body>
+</html>

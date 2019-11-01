@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<ui:include src="templates/head.xhtml"/>
+<h:body>
+    <ui:include src="templates/user-navbar.xhtml"/>
+    <main>
+        <hr class="hr-2 bg-dark"/>
+        <div class="container-fluid product-holder">
+            <h1 class="text-center">#{productDetails.getProduct(request.getParameter('id')).name}</h1>
+            <hr class="hr-2 bg-dark"/>
+            <div class="product-type-holder half-width mx-auto d-flex justify-content-between">
+                <h3 class="text-center">Type: #{productDetails.getProduct(request.getParameter('id')).type}</h3>
+                <h3 class="text-center">Price: $#{productDetails.getProduct(request.getParameter('id')).price}</h3>
+            </div>
+            <hr class="hr-2 bg-dark"/>
+            <h3 class="text-center">Description</h3>
+            <div class="product-description-holder">
+                <p class="text-center mt-4">
+                    #{productDetails.getProduct(request.getParameter('id')).description}
+                </p>
+            </div>
+
+            <c:choose>
+                <c:when test="#{session.getAttribute('role') == 'Admin'}">
+                    <hr class="hr-2 bg-dark"/>
+                    <h3 class="text-center">Actions</h3>
+                    <div class="product-action-holder mt-4 d-flex justify-content-between">
+                        <h:form>
+                            <h:link class="btn chushka-bg-color" value="Edit"
+                                    outcome="products-edit?id=#{productDetails.getProduct(request.getParameter('id')).id}"/>
+                            <h:link class="btn chushka-bg-color" value="Delete"
+                                             outcome="products-delete?id=#{productDetails.getProduct(request.getParameter('id')).id}"/>
+                        </h:form>
+                    </div>
+                </c:when>
+            </c:choose>
+        </div>
+    </main>
+
+    <ui:include src="templates/footer.xhtml"/>
+</h:body>
+</html>

@@ -2,5 +2,5 @@ package domain.entites;
 
 public enum Type {
 
-    Food, Domestic, Health, Cosmetic, Other,
+    FOOD, DOMESTIC, HEALTH, COSMETIC, OTHER;
 }
