@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="templates/head.xhtml"/>
+<h:body>
+    <ui:include src="templates/user-navbar.xhtml"/>
+
+    <main>
+        <div class="text-center mt-3">
+            <h4 class="text-info text-center">@#{session.getAttribute('username')}</h4>
+            <h4 class="text-info text-center">(#{session.getAttribute('email')})</h4>
+        </div>
+        <hr/>
+        <div class="container-fluid">
+            <div class="row d-flex flex-column">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <ui:repeat value="#{userProfileBean.tubeServiceModels}" var="tube" varStatus="i">
+                    <tbody>
+                        <tr>
+                            <th scope="col">#{i.index + 1}</th>
+                            <th scope="col">#{tube.title}</th>
+                            <th scope="col">#{tube.author}</th>
+                            <th scope="col"><h:link value="Details" outcome="details?id=#{tube.id}" /></th>
+                        </tr>
+                    </tbody>
+                    </ui:repeat>
+
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <ui:include src="templates/footer.xhtml"/>
+</h:body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="templates/head.xhtml"/>
+<h:body>
+    <ui:include src="templates/user-navbar.xhtml"/>
+    <main>
+        <div class="text-center mt-3">
+            <h4 class="h4 text-info">Welcome, #{session.getAttribute("username")}</h4>
+        </div>
+        <hr class="my-4"/>
+        <div class="container">
+            <ui:repeat value="#{homeBean.tubeServiceModels}" var="tube" varStatus="status">
+                <h:outputText value="&lt;div class=&quot;row d-flex justify-content-around&quot;&gt;"
+                              escape="false" rendered="#{status.index % 3 == 0}"/>
+                <div class="product col-md-2 rounded-top rounded-bottom">
+                    <h:graphicImage library="image" name="youtube.png"
+                                    class="img-thumbnail" width="350" height="350"/>
+                    <p class="text-center"><h:link value="#{tube.title}" outcome="details?id=#{tube.id}" class="h5 text-center" /></p>
+                    <p class="text-center"><h:link value="#{tube.author}" outcome="details?id=#{tube.id}" class="h5 text-center" /></p>
+                    <br/>
+                </div>
+                <br/>
+                <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 3 == 2}"/>
+                <br/>
+            </ui:repeat>
+        </div>
+    </main>
+    <ui:include src="templates/footer.xhtml"/>
+</h:body>
+</html>

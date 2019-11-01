@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="templates/head.xhtml"/>
+<h:body>
+    <ui:include src="templates/user-navbar.xhtml"/>
+
+    <main>
+        <div class="text-center mb-3">
+            <h1>Register</h1>
+        </div>
+        <hr class="my-2"/>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="form-holder text-center">
+                    <h:form class="form-inline" >
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label h3 mb-2" for="username">Username</label>
+                                <div class="controls">
+                                    <h:inputText type="text" id="username" name="username" placeholder="Username" class="input-xlarge"
+                                                 value="#{userRegisterBean.userRegisterBindingModel.username}"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="control-group">
+                                <label class="control-label h3 mb-2" for="password">Password</label>
+                                <div class="controls">
+                                    <h:inputSecret type="password" id="password" name="password" placeholder="Password"
+                                                   class="input-xlarge" value="#{userRegisterBean.userRegisterBindingModel.password}" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="control-group">
+                                <label class="control-label h3 mb-2" for="confirmPassword">Confirm Password</label>
+                                <div class="controls">
+                                    <h:inputSecret type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
+                                                   class="input-xlarge" value="#{userRegisterBean.userRegisterBindingModel.confirmPassword}"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="control-group">
+                                <label class="control-label h3 mb-2" for="email">Email</label>
+                                <div class="controls">
+                                    <h:inputText type="text" id="email" name="email" placeholder="Email"
+                                                 class="input-xlarge" value="#{userRegisterBean.userRegisterBindingModel.email}" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <h:commandButton class="btn btn-info" value="Register"
+                                                     action="#{userRegisterBean.register}"/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <hr class="my-2"/>
+    <ui:include src="templates/footer.xhtml"/>
+</h:body>
+</html>
