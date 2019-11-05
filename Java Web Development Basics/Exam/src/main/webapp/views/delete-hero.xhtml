@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="templates/head.xhtml"/>
+
+<h:body>
+    <ui:include src="templates/user-navbar.xhtml"/>
+
+    <main>
+        <h1 class="text-center mt-2">Delete Hero</h1>
+        <hr class="hr-3"/>
+        <h:form class="mx-auto w-15">
+            <div class="form-group">
+                <div class="label-holder d-flex justify-content-center text-white">
+                    <label for="name" class="h3 mb-2">Name</label>
+                </div>
+                <h:outputText type="text" class="form-control" id="name" name="name"  disabled="true"
+                        value="#{heroDeleteBean.getHeroById(request.getParameter('id')).name}" />
+            </div>
+            <div class="form-group">
+                <div class="label-holder d-flex justify-content-center text-white">
+                    <label for="heroClass" class="h3 mb-2">Hero class</label>
+                </div>
+                <h:inputText type="text" class="form-control" id="heroClass" name="heroClass"
+                       disabled="true" value="#{heroDeleteBean.getHeroById(request.getParameter('id')).heroClass}"/>
+            </div>
+            <div class="form-group">
+                <div class="label-holder d-flex justify-content-center text-white">
+                    <label for="level" class="h3 mb-2">Level</label>
+                </div>
+                <h:inputText type="number" class="form-control" id="level" name="level" disabled="true"
+                        value="#{heroDeleteBean.getHeroById(request.getParameter('id')).level}"/>
+            </div>
+            <input type="hidden" value="#{heroDeleteBean.getHeroById(request.getParameter('id')).id}" name="id" />
+            <div class="button-holder d-flex justify-content-center">
+                <h:commandButton class="btn btn-danger text-white mb-3" type="submit" value="Delete Hero"
+                        action="#{heroDeleteBean.delete}"/>
+            </div>
+        </h:form>
+
+        //TO DO FILTER!!!
+    </main>
+
+    <ui:include src="templates/footer.xhtml"/>
+</h:body>
+</html>
