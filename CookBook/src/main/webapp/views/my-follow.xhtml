@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<ui:include src="template/head.xhtml"/>
+<h:body>
+    <ui:include src="template/user-navbar.xhtml"/>
+    <main>
+        <hr class="my-2"/>
+        <div class="text-center mt-3">
+            <h4 class="text-info">Connecting People</h4>
+        </div>
+        <hr class="my-4"/>
+
+        <div class="row">
+            <div class="home-page offset-lg-3 col-lg-6">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">First name</th>
+                        <th scope="col">Last name</th>
+                        <th scope="col"> </th>
+                    </tr>
+                    </thead>
+
+                    <ui:repeat value="#{userFriendsBean.models}" var="model" varStatus="i">
+                        <thead>
+                        <tr>
+                            <th scope="col">#{i.index + 1}.</th>
+                            <th scope="col">@<h:link outcome="details-user?id=#{model.id}" value="#{model.username}"/></th>
+                            <th scope="col">#{model.firstName}</th>
+                            <th scope="col">#{model.lastName}</th>
+                            <th scope="col">
+                                <h:link value="Unfollow" outcome="user-delete-follow?id=#{model.id}" class="btn btn-danger"/>
+                            </th>
+                        </tr>
+                        </thead>
+                    </ui:repeat>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
+
+    <ui:include src="template/footer.xhtml"/>
+</h:body>
+</html>

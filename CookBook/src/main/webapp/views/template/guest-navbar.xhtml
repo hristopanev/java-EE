@@ -1,0 +1,26 @@
+<header xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="btn-outline-success my-2 my-sm-0 h4" href="/">CookingBook</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"/>
+        </button>
+
+        <div class="collapse navbar-collapse ml-0" id="navbarToggler">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                </li>
+            </ul>
+            <h:form class="form-inline my-2 my-lg-0">
+                <h:inputText class="form-control mr-sm-2" id="username" name="username" value="#{userLoginBean.userLoginBindingModel.username}"/>
+                <h:inputSecret class="form-control mr-sm-2" id="password" name="password" value="#{userLoginBean.userLoginBindingModel.password}"/>
+                <h:commandButton class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Login" action="#{userLoginBean.login}"/>
+            </h:form>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<ui:include src="template/head.xhtml"/>
+<h:body>
+    <ui:include src="template/user-navbar.xhtml"/>
+    <main>
+        <hr class="my-3"/>
+                <h1 class="text-center">Your Recipе</h1>
+        <hr class="my-3"/>
+
+        <div class="home row">
+
+            <div class="home-box col-lg-2">
+                <ul>
+                    <li class="profile-pic">
+                        <div class="text-center">
+                            <h:graphicImage url="../resources/image/user.jpg" class="img-thumbnail"  width="150" height="150"/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="home-page offset-lg-1 col-lg-6">
+                <hr class="my-3"/>
+                <ui:repeat value="#{userProfile.post}"  varStatus="recipe" var="post">
+                    <!--                <h:outputText value="&lt;div class='container home-page-posts justify-content-around'&gt;" escape="false"/>-->
+                    <div class="container home-page-posts justify-content-around">
+                        <div class="text-center">
+                            <h5 class="text-center">#{post.name}</h5>
+                            <h5 class="text-center">posted in #{post.postTime}</h5>
+                            <h:graphicImage url="../resources/image/eggs.jpg" class="img-thumbnail" width="300" height="300"/>
+                            <ul>
+                                <li><h:link value="Details" outcome="details-post?id=#{post.id}" class="btn btn-info" /></li>
+                                <li><h:link value="Delete" outcome="delete-post?id=#{post.id}" class="btn btn-danger"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr class="my-3"/>
+                </ui:repeat>
+            </div>
+
+            <div class="home-box offset-lg-1 col-lg-2">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="name-group">Friends</th>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <th scope="col">@pesho</th>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <th scope="col">@gosho</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+    </main>
+    <ui:include src="template/footer.xhtml"/>
+</h:body>>
+</html>

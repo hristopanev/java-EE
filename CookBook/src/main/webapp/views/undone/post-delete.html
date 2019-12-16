@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CookBook</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset-css.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/home-navbar.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="btn-outline-success my-2 my-sm-0 h4" href="/home.html">CookBook</a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="nav-item admin-nav" id="navbarNav">
+                <ul class="navbar navbar-dark bg-dark">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user-list.html">User List</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user-posts.html">User Posts</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin-home.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user-profil.html">Username</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/post-recept.html">Post Recept</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="home-page">
+            <hr class="my-3"/>
+            <h1 class="text-center">Delete Recept</h1>
+            <hr class="hr-3"/>
+            <div class="delete-form">
+              <form class="mx-auto w-15" method="post" action="/jobs/delete?id=1">
+                <div class="form-group">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label for="salary" class="h3 mb-2">Recept name</label>
+                    </div>
+                    <img src="/image/eggs.jpg" class="img-thumbnail" width="300" height="300" disabled>
+                </div>
+                  <div class="form-group">
+                      <div class="label-holder d-flex justify-content-center">
+                          <label for="recept" class="h3 mb-2">Recept</label>
+                      </div>
+                      <input type="text" class="form-control" id="recept" name="recept" value="Recept" disabled>
+                  </div>
+                  <div class="form-group">
+                      <div class="label-holder d-flex justify-content-center">
+                          <label for="recept" class="h3 mb-2">Recept products</label>
+                      </div>
+                      <textarea rows="4" class="form-control" id="recept" name="recept" disabled>recept products...</textarea>
+                  </div>
+                  <div class="form-group">
+                      <div class="label-holder d-flex justify-content-center">
+                          <label for="recept" class="h3 mb-2">Recept description</label>
+                      </div>
+                      <textarea rows="4" class="form-control" id="recept" name="recept" disabled>recept description...</textarea>
+                  </div>
+                  <div class="button-holder d-flex justify-content-center">
+                      <button type="submit" class="btn btn-danger text-white">Delete Recept</button>
+                  </div>
+              </form>
+            </div>
+            <hr class="my-3">
+        </div>
+    </main>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="text-muted container-fluid text-center">All rights reserved &copy; Hristo Panev</div>
+        </div>
+    </footer>
+</body>
+</html>

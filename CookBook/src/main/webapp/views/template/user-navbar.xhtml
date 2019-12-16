@@ -1,0 +1,44 @@
+<header xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <nav class="navbar navbar-dark bg-dark">
+        <h:link class="btn-outline-success my-2 my-sm-0 h4" value="CookingBook" outcome="home"/>
+<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+        <div class="nav-item admin-nav" id="navbarNav">
+            <ul class="navbar navbar-dark bg-dark">
+                <c:choose>
+                    <c:when test="#{session.getAttribute('role') == 'Admin'}">
+                        <li class="nav-item bg-warning">
+                            <h:link class="nav-link admin-link" outcome="user-list" value="Users List"/>
+                        </li>
+                        <li class="nav-item bg-warning">
+                            <h:link class="nav-link admin-link" outcome="user-posts" value="Users Posts"/>
+                        </li>
+                        <li class="nav-item bg-warning">
+                            <h:link class="nav-link admin-link" outcome="user-posts-count" value="Posts Count"/>
+                        </li>
+                    </c:when>
+                </c:choose>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="profile" value="@#{session.getAttribute('username')}" />
+                </li>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="home" value="Home" />
+                </li>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="create-post" value="Post Recipe" />
+                </li>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="my-follow" value="My Friends" />
+                </li>
+                <li class="nav-item">
+                    <h:form>
+                        <h:commandButton class="btn btn-outline-success my-2 my-sm-0" action="#{userLogoutBean.logout}" value="Logout"/>
+                    </h:form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

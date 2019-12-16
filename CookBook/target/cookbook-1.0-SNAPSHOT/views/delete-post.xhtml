@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="template/head.xhtml"/>
+<h:body>
+    <ui:include src="template/user-navbar.xhtml"/>
+    <main>
+        <hr class="my-3"/>
+        <h1 class="text-center">Delete Recipe!</h1>
+        <hr class="my-3"/>
+
+        <div class="row">
+            <div class="home-page offset-lg-3 col-lg-6">
+                <h:form >
+                    <hr class="my-3"/>
+                    <div class="form-group">
+                        <label for="recipeName">Recipe Name</label>
+                        <h:inputText type="text" class="form-control" id="recipeName"
+                                     name="recipeName" value="#{postDeleteBean.getPost(request.getParameter('id')).name}" disabled="true"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipeImage">Recipe Image</label>
+                        <p:fileUpload id="recipeImage" name="recipeImage" fileUploadListener="#{postUploadImage.upload}"
+                                      value="#{postDeleteBean.getPost(request.getParameter('id')).image}" disabled="true"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipeProducts">Recipe Products</label>
+                        <h:inputText type="text" class="form-control" id="recipeProducts"
+                                     name="recipeProducts"
+                                     value="#{postDeleteBean.getPost(request.getParameter('id')).product}" disabled="true"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipeDescription">Recipe Description</label>
+                        <h:inputText type="text" class="form-control" id="recipeDescription"
+                                     name="recipeDescription"
+                                     value="#{postDeleteBean.getPost(request.getParameter('id')).description}" disabled="true"/>
+                    </div>
+
+                    <input type="hidden" value="${postDeleteBean.getPost(request.getParameter('id')).id}" name="id"/>
+                    <div class="button-holder d-flex justify-content-center">
+                        <h:commandButton class="btn btn-danger text-white" value="Delete Post" action="#{postDeleteBean.delete}" />
+                    </div>
+
+                </h:form>
+            </div>
+
+        </div>
+        <div class="btn-register">
+            <br/>
+            <button class="btn btn-outline-success my-2 my-sm-0 text-center justify-content-center" onclick="window.history.back()" type="submit">Back</button>
+        </div>
+        <hr class="my-3"/>
+
+    </main>
+
+
+
+    <ui:include src="template/footer.xhtml"/>
+</h:body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:include src="template/head.xhtml"/>
+<h:body>
+    <ui:include src="template/user-navbar.xhtml"/>
+    <main>
+        <hr class="my-3"/>
+        <h1 class="text-center">
+            @#{userDetailsBean.getUser(request.getParameter("id")).username}
+        </h1>
+        <hr class="my-3"/>
+
+        <div class="row">
+            <div class="home-box col-lg-2">
+                <ul>
+                    <li class="profile-pic">
+                        <div class="text-center">
+                            <h:graphicImage url="../resources/image/user.jpg" class="img-thumbnail"  width="150" height="150"/>
+                        </div>
+                    </li>
+                    <li>
+                        <br/>
+                            <div class="text-center">
+                                <h:link value="Follow" id="Follow" outcome="user-add-follow?id=#{userDetailsBean.getUser(request.getParameter('id')).id}" class="btn btn-info"/>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="home-page offset-lg-1 col-lg-6">
+                <hr class="my-3"/>
+                <ui:repeat value="#{userDetailsBean.getPost(request.getParameter('id'))}" varStatus="recipe" var="post">
+                    <div class="container home-page-posts justify-content-around">
+                        <div class="text-center">
+                            <h5 class="text-center">#{post.name}</h5>
+                            <h5 class="text-center">posted in #{post.postTime}</h5>
+                            <h:graphicImage url="../resources/image/eggs.jpg" class="img-thumbnail" width="300" height="300"/>
+                            <ul>
+                                <li><h:link value="Details" outcome="details-post?id=#{post.id}" class="btn btn-info" /></li>
+                                <c:choose>
+                                    <c:when test="#{session.getAttribute('role') == 'Admin'}">
+                                        <li><h:link value="Delete" outcome="delete-post?id=#{post.id}" class="btn btn-danger"/></li>
+                                    </c:when>
+                                </c:choose>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr class="my-3"/>
+                </ui:repeat>
+            </div>
+
+                <div class="home-box offset-lg-1 col-lg-2">
+                </div>
+
+        </div>
+    </main>
+
+    <ui:include src="template/footer.xhtml"/>
+</h:body>
+</html>

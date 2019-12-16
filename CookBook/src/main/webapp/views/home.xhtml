@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<ui:include src="template/head.xhtml"/>
+<h:body>
+    <ui:include src="template/user-navbar.xhtml"/>
+    <main>
+        <div class="home row">
+
+            <div class="home-box col-lg-2">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="name-group"><h:link outcome="/my-follow.jsf" value="My Follow"/></th>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <ui:repeat value="#{userFriendsBean.models}" var="model" varStatus="i">
+                            <thead>
+                            <tr>
+                                <th scope="col">@<h:link outcome="details-user?id=#{model.id}" value="#{model.username}"/></th>
+                            </tr>
+                            </thead>
+                        </ui:repeat>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="offset-lg-1 col-lg-6">
+                <ui:repeat value="#{postListAllBean.post}"  varStatus="recipe" var="post">
+                    <div class="home-page">
+
+                        <hr/>
+                        <c:choose>
+                            //TODO...
+                            <c:when test="#{post.posts.username} == #{session.getAttribute('username')}">
+                                <h5 class="text-center"><h:link value="@#{post.posts.username}" outcome="profile"/>
+                                    <br/><br/> posted in #{post.postTime}
+                                </h5>
+                            </c:when>
+                            <c:otherwise>
+                                <h5 class="text-center"><h:link value="@#{post.posts.username}" outcome="details-user?id=#{post.posts.id}"/>
+                                    <br/><br/> posted in #{post.postTime}
+                                </h5>
+                            </c:otherwise>
+                        </c:choose>
+
+                        <div class="container home-page-posts justify-content-around">
+                            <div class="text-center">
+                                <h5 class="text-center">#{post.name}</h5>
+                                <h:graphicImage url="../resources/image/eggs.jpg" class="img-thumbnail" width="300" height="300"/>
+                                <ul>
+                                    <li><h:link value="Details" outcome="details-post?id=#{post.id}" class="btn btn-info" /></li>
+                                    <c:choose>
+                                        <c:when test="#{session.getAttribute('role') == 'Admin'}">
+                                            <li><h:link value="Delete" outcome="delete-post?id=#{post.id}" class="btn btn-danger"/></li>
+                                        </c:when>
+                                    </c:choose>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="comment-form">
+                            <div>@Pesho has comment:</div>
+                            <span> lol</span>
+                        </div>
+                        <div class="comment-form">
+                            <label class="text-center" for="add-comment">Add Comment</label>
+                            <h:inputTextarea  class="form-control" id="add-comment" name="add-comment" row="2" value=""/>
+                            <button class="btn-info" id="add-recipe-comment"> Add comment </button>
+                        </div>
+
+                        <hr class="my-3"/>
+                        <br/>
+                    </div>
+                    <br/>
+                </ui:repeat>
+            </div>
+
+            <div class="home-box offset-lg-1 col-lg-2">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="name-group"><h:link value="Add Group" outcome="/create-group"/></th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="name-group">Your Groups</th>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <th scope="col">#na skara</th>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <th scope="col">#na baba</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
+
+    <ui:include src="template/footer.xhtml"/>
+</h:body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CookBook</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset-css.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/home-navbar.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="btn-outline-success my-2 my-sm-0 h4" href="/home.html">CookBook</a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="nav-item" id="navbarNav">
+                <ul class="navbar navbar-dark bg-dark">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/home.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user-profil.html">Username</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/post-recept.html">Post Recept</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="home-page">
+            <div class="recept-form container">
+                <form class="add-recept">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">Recept Name</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="add-img">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">Add Image</span>
+                            </div>
+                            <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                            <label class="custom-file-label" for="inputGroupFile01"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="validationCustom01">Whrite recept products</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                             <!-- <span class="input-group-text">Whrite make out</span> -->
+                        </div>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div>
+                    <label for="validationCustom01">Whrite recept text</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                             <!-- <span class="input-group-text">Whrite make out</span> -->
+                        </div>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div>
+                </form>
+        </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="text-muted container-fluid text-center">All rights reserved &copy; Hristo Panev</div>
+        </div>
+    </footer>
+</body>
+</html>

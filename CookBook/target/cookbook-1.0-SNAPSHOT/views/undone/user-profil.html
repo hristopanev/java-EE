@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CookBook</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset-css.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/home-navbar.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="btn-outline-success my-2 my-sm-0 h4" href="/home.html">CookBook</a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="nav-item" id="navbarNav">
+                <ul class="navbar navbar-dark bg-dark">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/home.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user-profil.html">Username</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/post-recept.html">Post Recept</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="home-page">
+          <hr class="my-3"/>
+          <div class="text-center mb-3">
+              <h4 class="text-info">Welcome, #User</h4>
+          </div>
+          <h4 class="text-info text-center mb3">Your Recept</h4>
+          <hr class="my-3">
+
+          <div class="container home-page-posts justify-content-around">
+              <div class="text-center">
+                 <h5 class="text-center">Eggs</h5>
+                <img src="/image/eggs.jpg" class="img-thumbnail" width="300" height="300">
+                <ul>
+                    <li><a href="/post-recept/details/?id=1" class="btn btn-info">Details</a></li>
+                    <li><a href="/post-recept/edit/?id=1" class="btn btn-outline-success">Edit</a></li>
+                    <li><a href="/post-recept/delete/?id=1" class="btn btn-danger">Delete</a></li>
+                </ul>
+              </div>
+          </div>
+          <hr class="my-3">
+        </div>
+    </main>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="text-muted container-fluid text-center">All rights reserved &copy; Hristo Panev</div>
+        </div>
+    </footer>
+</body>
+</html>
