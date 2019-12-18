@@ -1,0 +1,2 @@
+Jobs is an application for job offers. You have been tasked to implement this application for an unusually low price, 
+by an unusually rich client. There are several requirements you must follow in the implementation.

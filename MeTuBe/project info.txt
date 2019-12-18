@@ -1,0 +1,3 @@
+MeTube is like YouTube, “ama ne bash” like an old Bulgarian Sage once said. 
+You have been tasked to implement this application for literally no money, by the richest man on earth. 
+There are several requirements you must follow in the implementation.
