@@ -6,8 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0adc9ff-26be-48fd-a754-4ecef49240f4" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="e0adc9ff-26be-48fd-a754-4ecef49240f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CookBook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CookBook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/CookBook.kotlin_module" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +66,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/webapp/views/template/user-navbar.xhtml" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -80,8 +87,14 @@
     </option>
   </component>
   <component name="ProjectId" id="1R5pHsWbKEhJy3Lht0eQUMj5poM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -108,18 +121,6 @@
       <recent name="D:\Project\CookBook\src\main\java\cookbook\domain\entities" />
       <recent name="D:\Project\CookBook\src\main\java\cookbook\repository" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="TomEE" type="TomeeConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="TomEE 9.0.20" ALTERNATIVE_JRE_ENABLED="false">
@@ -196,13 +197,25 @@
     </configuration>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand />
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="TomEE Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="TomEE Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -224,6 +237,7 @@
       <workItem from="1569924190000" duration="31399000" />
       <workItem from="1570543164334" duration="3995000" />
       <workItem from="1572703519075" duration="1049000" />
+      <workItem from="1588774291506" duration="888000" />
     </task>
     <servers />
   </component>
@@ -231,21 +245,53 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1293" height="282" key="GridCell.Tab.0.bottom" timestamp="1576529017902">
-      <screen x="-1920" y="0" width="1920" height="1050" />
+    <state width="1024" height="224" key="GridCell.Tab.0.bottom" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1536.834/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1576529017902" />
-    <state width="1293" height="282" key="GridCell.Tab.0.center" timestamp="1576529017902">
-      <screen x="-1920" y="0" width="1920" height="1050" />
+    <state width="1024" height="224" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
+    <state width="1024" height="224" key="GridCell.Tab.0.center" timestamp="1588775178592">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1536.834/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1576529017902" />
-    <state width="1293" height="282" key="GridCell.Tab.0.left" timestamp="1576529017902">
-      <screen x="-1920" y="0" width="1920" height="1050" />
+    <state width="1024" height="224" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1588775178592" />
+    <state width="1024" height="224" key="GridCell.Tab.0.left" timestamp="1588775178592">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1536.834/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1576529017902" />
-    <state width="1293" height="282" key="GridCell.Tab.0.right" timestamp="1576529017902">
-      <screen x="-1920" y="0" width="1920" height="1050" />
+    <state width="1024" height="224" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1588775178592" />
+    <state width="1024" height="224" key="GridCell.Tab.0.right" timestamp="1588775178592">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1536.834/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1576529017902" />
+    <state width="1024" height="224" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1588775178592" />
+    <state width="1024" height="224" key="GridCell.Tab.1.bottom" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1024" height="224" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
+    <state width="1024" height="224" key="GridCell.Tab.1.center" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1024" height="224" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
+    <state width="1024" height="224" key="GridCell.Tab.1.left" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1024" height="224" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
+    <state width="1024" height="224" key="GridCell.Tab.1.right" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1024" height="224" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
+    <state width="1024" height="224" key="GridCell.Tab.2.bottom" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1024" height="224" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
+    <state width="1024" height="224" key="GridCell.Tab.2.center" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1024" height="224" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
+    <state width="1024" height="224" key="GridCell.Tab.2.left" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1024" height="224" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
+    <state width="1024" height="224" key="GridCell.Tab.2.right" timestamp="1588775178593">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1024" height="224" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1588775178593" />
   </component>
 </project>
